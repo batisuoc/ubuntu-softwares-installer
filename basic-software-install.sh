@@ -3,6 +3,7 @@ set -e
 
 # Basic software
 apt-get update && apt-get upgrade -y && apt-get dist-upgrade -y
+apt-get install build-essential -y && apt-get install libssl-dev -y
 apt-get install gnome-tweak-tool -y && apt-get install gnome-shell-extensions -y
 apt-get install software-properties-common apt-transport-https wget ca-certificates curl -y
 
@@ -84,12 +85,16 @@ echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sou
 apt-get update && apt-get install spotify-client -y
 
 # Install Nodejs
-apt-get update && apt-get install nodejs npm -y
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+nvm install --lts
+nvm use --lts
 
 # Install Docker
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
 add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
-apt-get update && apt-get install docker-ce docker-compose -y
+apt-get update && apt-get install docker-ce  -y
 usermod -aG docker ${USER}
 su - ${USER}
+## Install Docker Compose
+apt-get update && apt-get install docker-compose -y
 
