@@ -28,7 +28,7 @@ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 apt install ./google-chrome*.deb -y
 
 # Install Visual Studio Code
-wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
+wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | apt-key add -
 add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
 apt-get update && apt-get install -y code 
 
@@ -42,8 +42,8 @@ echo "deb https://download.sublimetext.com/ apt/stable/" | tee /etc/apt/sources.
 apt-get update && apt-get install sublime-text -y
 
 # Install snipping tool:
-sudo add-apt-repository --yes ppa:linuxuprising/shutter
-sudo apt-get update
+add-apt-repository --yes ppa:linuxuprising/shutter
+apt-get update
 apt-get install shutter -y
 
 # Install Java:
@@ -83,8 +83,8 @@ apt-get install vlc -y
 apt-get install aircrack-ng -y
 
 # Install Spotify
-curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add - 
-echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+curl -sS https://download.spotify.com/debian/pubkey.gpg | apt-key add - 
+echo "deb http://repository.spotify.com stable non-free" | tee /etc/apt/sources.list.d/spotify.list
 apt-get update && apt-get install spotify-client -y
 
 # Install Nodejs
@@ -95,7 +95,7 @@ nvm use --lts
 # Install Docker
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
 add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
-apt-get update && apt-get install docker-ce  -y
+apt-get update && apt-get install docker-ce -y
 usermod -aG docker ${USER}
 ## Install Docker Compose
 apt-get update && apt-get install docker-compose -y
