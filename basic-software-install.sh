@@ -13,14 +13,17 @@ apt-get install ubuntu-restricted-extras libavcodec-extra -y
 # Install boot manager :
 apt-get update && apt-get install grub-customizer -y
 
-# Install unikey and pinyin
-apt-get install ibus-unikey ibus-pinyin -y
+# Install Unikey and Sogou chinese input method
+apt-get install fcitx fcitx-unikey -y
+wget https://ime.sogoucdn.com/dl/index/1612260778/sogoupinyin_2.4.0.3469_amd64.deb
+dpkg -i sogoupinyin_2.4.0.3469_amd64.deb
+
 
 # Install VIM
 apt-get update && apt-get install vim -y
 
 # Install Chrome
-apt-get install libxss1 libappindicator1 libindicator7
+apt-get install libxss1 libappindicator1 libindicator7 -y
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 apt install ./google-chrome*.deb -y
 
@@ -94,7 +97,6 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
 add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
 apt-get update && apt-get install docker-ce  -y
 usermod -aG docker ${USER}
-su - ${USER}
 ## Install Docker Compose
 apt-get update && apt-get install docker-compose -y
 
