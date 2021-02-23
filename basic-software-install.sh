@@ -13,12 +13,6 @@ apt-get install ubuntu-restricted-extras libavcodec-extra -y
 # Install boot manager :
 apt-get update && apt-get install grub-customizer -y
 
-# Install Unikey and Sogou chinese input method
-apt-get install fcitx fcitx-unikey -y
-wget https://ime.sogoucdn.com/dl/index/1612260778/sogoupinyin_2.4.0.3469_amd64.deb
-dpkg -i sogoupinyin_2.4.0.3469_amd64.deb
-
-
 # Install VIM
 apt-get update && apt-get install vim -y
 
@@ -100,3 +94,12 @@ usermod -aG docker ${USER}
 ## Install Docker Compose
 apt-get update && apt-get install docker-compose -y
 
+# Install Github Deskstop
+wget -qO - https://packagecloud.io/shiftkey/desktop/gpgkey | apt-key add -
+sh -c 'echo "deb [arch=amd64] https://packagecloud.io/shiftkey/desktop/any/ any main" > /etc/apt/sources.list.d/packagecloud-shiftky-desktop.list'
+apt-get update && apt-get install github-desktop -y
+
+# Install Unikey and Sogou chinese input method
+apt-get install fcitx fcitx-unikey -y
+wget https://ime.sogoucdn.com/dl/index/1612260778/sogoupinyin_2.4.0.3469_amd64.deb
+dpkg -i sogoupinyin_2.4.0.3469_amd64.deb
