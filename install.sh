@@ -101,5 +101,5 @@ apt-get update && apt-get install github-desktop -y
 
 # Install Unikey and Sogou chinese input method
 apt-get install fcitx fcitx-unikey -y
-wget https://ime.sogoucdn.com/dl/index/1612260778/sogoupinyin_2.4.0.3469_amd64.deb
-dpkg -i sogoupinyin_2.4.0.3469_amd64.deb
+# wget https://ime.sogoucdn.com/dl/index/1612260778/sogoupinyin_2.4.0.3469_amd64.deb
+# dpkg -i sogoupinyin_2.4.0.3469_amd64.deb

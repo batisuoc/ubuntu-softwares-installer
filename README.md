@@ -2,6 +2,12 @@
 
 Ubuntu softwares installation after OS installation.
 
+## Installation
+
+```bash
+sudo ./install.sh
+```
+
 ## Other setup
 
 - [Configure partition between window and linux](https://www.howtogeek.com/howto/35807/how-to-harmonize-your-dual-boot-setup-for-windows-and-ubuntu/)
