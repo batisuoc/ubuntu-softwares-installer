@@ -4,7 +4,7 @@ Ubuntu softwares installation after OS installation.
 
 ## Installation
 
-```bash
+```shell
 sudo ./install.sh
 ```
 
