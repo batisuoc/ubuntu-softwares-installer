@@ -6,6 +6,7 @@ apt-get update && apt-get upgrade -y && apt-get dist-upgrade -y
 apt-get install build-essential -y && apt-get install libssl-dev -y
 apt-get install gnome-tweak-tool -y && apt-get install gnome-shell-extensions -y
 apt-get install software-properties-common apt-transport-https wget ca-certificates curl -y
+apt-get install htop -y
 
 # Install media codecs :
 apt-get install ubuntu-restricted-extras libavcodec-extra -y
