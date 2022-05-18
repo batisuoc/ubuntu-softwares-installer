@@ -8,6 +8,10 @@ apt-get install gnome-tweak-tool -y && apt-get install gnome-shell-extensions -y
 apt-get install software-properties-common apt-transport-https wget ca-certificates curl -y
 apt-get install htop -y
 
+# Install ttf-mscorefonts-installer
+echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
+sudo apt-get install ttf-mscorefonts-installer
+
 # Install media codecs :
 apt-get install ubuntu-restricted-extras libavcodec-extra -y
 
@@ -31,15 +35,15 @@ apt-get update && apt-get install -y code
 apt install net-tools -y
 
 # Install sublime text 3 :
-wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | apt-key add -
-apt-get install apt-transport-https
-echo "deb https://download.sublimetext.com/ apt/stable/" | tee /etc/apt/sources.list.d/sublime-text.list
-apt-get update && apt-get install sublime-text -y
+apt-get update && apt-get install dirmngr gnupg apt-transport-https ca-certificates software-properties-common
+curl -fsSL https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+add-apt-repository "deb https://download.sublimetext.com/ apt/stable/"
+apt-get install sublime-text
 
 # Install snipping tool:
 add-apt-repository --yes ppa:linuxuprising/shutter
-apt-get update
-apt-get install shutter -y
+apt-get update && apt-get install shutter -y
+
 
 # Install Java:
 apt-get update && apt-get install openjdk-8-jdk openjdk-8-jre -y
@@ -50,7 +54,7 @@ apt-get update && apt-get install openjdk-8-jdk openjdk-8-jre -y
 #./canon_lbp_setup.sh
 
 # Font manager
-apt -y install font-manager -y
+apt-get update && apt -y install font-manager -y
 
 # Install flat remix themes
 #add-apt-repository ppa:daniruiz/flat-remix
@@ -78,14 +82,18 @@ apt-get install vlc -y
 apt-get install aircrack-ng -y
 
 # Install Spotify
-curl -sS https://download.spotify.com/debian/pubkey.gpg | apt-key add - 
+curl -sS https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg | apt-key add - 
 echo "deb http://repository.spotify.com stable non-free" | tee /etc/apt/sources.list.d/spotify.list
 apt-get update && apt-get install spotify-client -y
 
 # Install Nodejs
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 nvm install --lts
 nvm use --lts
+#curl -fsSL https://github.com/Schniz/fnm/raw/master/.ci/install.sh | bash
+#source /home/unclejo/.bashrc
+#fnm install 16.15.0
+#fnm use 16.15.0
 
 # Install Docker
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
@@ -94,11 +102,6 @@ apt-get update && apt-get install docker-ce -y
 usermod -aG docker ${USER}
 ## Install Docker Compose
 apt-get update && apt-get install docker-compose -y
-
-# Install Github Deskstop
-wget -qO - https://packagecloud.io/shiftkey/desktop/gpgkey | apt-key add -
-sh -c 'echo "deb [arch=amd64] https://packagecloud.io/shiftkey/desktop/any/ any main" > /etc/apt/sources.list.d/packagecloud-shiftky-desktop.list'
-apt-get update && apt-get install github-desktop -y
 
 # Install Unikey and Sogou chinese input method
 apt-get install fcitx fcitx-unikey -y

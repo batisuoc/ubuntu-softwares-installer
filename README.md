@@ -5,6 +5,7 @@ Ubuntu softwares installation after OS installation.
 ## Installation
 
 ```shell
+sudo chmod +x install.sh
 sudo ./install.sh
 ```
 
