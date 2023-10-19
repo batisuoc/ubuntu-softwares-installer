@@ -1,6 +1,8 @@
 
 set -e
 
+apt-get install git -y
+
 # Basic software
 apt-get update && apt-get upgrade -y && apt-get dist-upgrade -y
 apt-get install build-essential -y && apt-get install libssl-dev -y
@@ -80,11 +82,6 @@ apt-get install vlc -y
 
 # Install aircrack-ng
 apt-get install aircrack-ng -y
-
-# Install Spotify
-curl -sS https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg | apt-key add - 
-echo "deb http://repository.spotify.com stable non-free" | tee /etc/apt/sources.list.d/spotify.list
-apt-get update && apt-get install spotify-client -y
 
 # Install Nodejs
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
